@@ -9,6 +9,22 @@
 #include <dt-bindings/zmk/keys.h>
 
 / {
+    macros {
+        USERNAME: USERNAME {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp E &kp F &kp A &kp L &kp C &kp O &kp N>;
+            label = "USERNAME";
+        };
+
+        PASSWORD: PASSWORD {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp DOLLAR &kp LS(P) &kp A &kp C &kp S &kp LS(E) &kp A &kp F &kp C &kp NUMBER_2 &kp N0 &kp NUMBER_2 &kp N0 &kp N0 &kp NUMBER_1 &kp NUMBER_1 &kp N7>;
+            label = "PASSWORD";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -35,10 +51,10 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB           &kp LC(RA(DEL))  &trans  &trans    &trans  &trans       &kp N7        &kp N8        &kp N9        &trans          &kp UP_ARROW    &kp BSPC
-&kp LEFT_SHIFT    &trans           &trans  &trans    &trans  &trans       &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
-&kp LEFT_CONTROL  &trans           &trans  &trans    &trans  &trans       &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp N0          &trans          &trans
-                                           &kp LGUI  &trans  &kp SPACE    &kp RET       &mo 3         &kp RALT
+&kp TAB           &kp LC(RA(DEL))  &trans     &trans    &trans  &trans       &kp N7        &kp N8        &kp N9        &trans          &kp UP_ARROW    &kp BSPC
+&kp LEFT_SHIFT    &USERNAME        &PASSWORD  &trans    &trans  &trans       &kp NUMBER_4  &kp N5        &kp NUMBER_6  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW
+&kp LEFT_CONTROL  &trans           &trans     &trans    &trans  &trans       &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp N0          &trans          &trans
+                                              &kp LGUI  &trans  &kp SPACE    &kp RET       &mo 3         &kp RALT
             >;
         };
 
